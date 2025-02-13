@@ -30,6 +30,7 @@
             <td>Name</td>
             <td>NIK</td>
             <td>Address</td>
+            <td>Action</td>
           </tr>
         </thead>
         <tbody>
@@ -38,7 +39,10 @@
             <td>{{$user.Name}}</td>
             <td>{{$user.Nik}}</td>
             <td>{{$user.Address}}</td>
-          </tr> 
+            <td>
+              <a href="/user/update?id={{$user.ID}}" class="btn btn-warning btn-sm"> Edit </a>
+            </td>
+          </tr>
           {{end}}
         </tbody>
       </table>
