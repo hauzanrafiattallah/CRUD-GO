@@ -21,14 +21,14 @@
     <div class="container my-5">
       <div class="d-flex justify-content-between">
         <h3>List User</h3>
-        <a href="/user/create" class="btn btn-sm btn-primary">Tambah Data</a>
+        <a href="/user/create" class="btn btn-sm btn-primary">Add Data</a>
       </div>
 
       <table class="table my-4">
         <thead>
           <tr>
             <td>Name</td>
-            <td>NIK</td>
+            <td>Telephone</td>
             <td>Address</td>
             <td>Action</td>
           </tr>
@@ -37,11 +37,21 @@
           {{range $index, $user := .users}}
           <tr>
             <td>{{$user.Name}}</td>
-            <td>{{$user.Nik}}</td>
+            <td>{{$user.Telephone}}</td>
             <td>{{$user.Address}}</td>
             <td>
-              <a href="/user/update?id={{$user.ID}}" class="btn btn-warning btn-sm"> Edit </a>
-              <a href="/user/delete?id={{$user.ID}}" class="btn btn-danger btn-sm"> Delete </a>
+              <a
+                href="/user/update?id={{$user.Id}}"
+                class="btn btn-warning btn-sm"
+              >
+                Edit
+              </a>
+              <a
+                href="/user/delete?id={{$user.Id}}"
+                class="btn btn-danger btn-sm"
+              >
+                Delete
+              </a>
             </td>
           </tr>
           {{end}}

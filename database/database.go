@@ -8,7 +8,7 @@ import (
 
 func InitDatabase() *sql.DB {
 	// Initialize database connection
-	dsn := "root:Hauzanrafi09@tcp(localhost:3306)/crud_user"
+	dsn := "root:Hauzanrafi09@tcp(localhost:3306)/CRUD_GO"
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		panic(err)

@@ -13,9 +13,9 @@ func NewUpdateUserController(db *sql.DB) func(w http.ResponseWriter, r *http.Req
 			id := r.URL.Query().Get("id")
 			r.ParseForm()
 			name := r.Form["name"][0]
-			nik := r.Form["nik"][0]
+			telephone := r.Form["telephone"][0]
 			address := r.Form["address"][0]
-			_, err := db.Exec("UPDATE user SET name=?, nik=?, address=? WHERE id=?", name, nik, address, id)
+			_, err := db.Exec("UPDATE users SET name=?, telephone=?, address=? WHERE id=?", name, telephone, address, id)
 			if err != nil {
 				w.Write([]byte(err.Error()))
 				w.WriteHeader(http.StatusInternalServerError)
@@ -26,7 +26,7 @@ func NewUpdateUserController(db *sql.DB) func(w http.ResponseWriter, r *http.Req
 		} else if r.Method == "GET" {
 			id := r.URL.Query().Get("id")
 
-			row := db.QueryRow("SELECT id, name, nik, address FROM user WHERE id = ?", id)
+			row := db.QueryRow("SELECT id, name, telephone, address FROM users WHERE id = ?", id)
 
 			if row.Err() != nil {
 				w.Write([]byte(row.Err().Error()))
@@ -36,12 +36,12 @@ func NewUpdateUserController(db *sql.DB) func(w http.ResponseWriter, r *http.Req
 			var user User
 
 			err := row.Scan(
-				&user.ID,
+				&user.Id,
 				&user.Name,
-				&user.Nik,
+				&user.Telephone,
 				&user.Address,
 			)
-			user.ID = id
+			user.Id = id
 			if err != nil {
 				w.Write([]byte(err.Error()))
 				w.WriteHeader(http.StatusInternalServerError)

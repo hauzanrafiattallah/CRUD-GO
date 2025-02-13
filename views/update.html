@@ -23,9 +23,9 @@
         <h3>Form User</h3>
       </div>
 
-      <form action="/user/update?id={{.user.ID}}" method="POST">
+      <form action="/user/update?id={{.user.Id}}" method="POST">
         <div class="mb-3">
-          <label for="name" class="form-label">Nama User</label>
+          <label for="name" class="form-label">Name User</label>
           <input
             type="text"
             id="name"
@@ -35,13 +35,13 @@
           />
         </div>
         <div class="mb-3">
-          <label for="nik" class="form-label">NIK</label>
+          <label for="telephone" class="form-label">Telephone</label>
           <input
             type="text"
-            id="nik"
-            name="nik"
+            id="telephone"
+            name="telephone"
             class="form-control"
-            value="{{.user.Nik}}"
+            value="{{.user.Telephone}}"
           />
         </div>
         <div class="mb-3">
