@@ -12,4 +12,5 @@ func MapRoutes(server *http.ServeMux, db *sql.DB) {
 	server.HandleFunc("/user", controller.NewIndexUser(db))
 	server.HandleFunc("/user/create", controller.NewCreateUserController(db))
 	server.HandleFunc("/user/update", controller.NewUpdateUserController(db))
+	server.HandleFunc("/user/delete", controller.NewDeleteUserController(db))
 }
