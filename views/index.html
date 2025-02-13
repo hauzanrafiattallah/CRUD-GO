@@ -23,6 +23,25 @@
         <h3>List User</h3>
         <a href="/user/create" class="btn btn-sm btn-primary">Tambah Data</a>
       </div>
+
+      <table class="table my-4">
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>NIK</td>
+            <td>Address</td>
+          </tr>
+        </thead>
+        <tbody>
+          {{range $index, $user := .users}}
+          <tr>
+            <td>{{$user.Name}}</td>
+            <td>{{$user.Nik}}</td>
+            <td>{{$user.Address}}</td>
+          </tr> 
+          {{end}}
+        </tbody>
+      </table>
     </div>
 
     <script
